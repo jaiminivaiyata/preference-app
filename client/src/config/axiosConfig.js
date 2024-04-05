@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/v1',
+  baseURL: 'https://preference-app.onrender.com/v1',
 })
 
 axiosInstance.interceptors.request.use((config) => {
@@ -20,7 +20,7 @@ axiosInstance.interceptors.response.use(
       if (error.response && error.response.status === 401 && error.config && !error.config.__isRetryRequest && refreshToken) {
         originalRequest._retry = true
 
-        const response = fetch("http://localhost:3000/v1/auth/token/refresh", {
+        const response = fetch("https://preference-app.onrender.com/v1/auth/token/refresh", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
