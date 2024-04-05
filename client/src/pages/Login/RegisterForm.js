@@ -80,7 +80,11 @@ const RegisterForm = ({ toggleIsLogin }) => {
         
         e.preventDefault();
         if (validateForm()) {
-            await dispatch(userSignUp(data));
+            const res = await dispatch(userSignUp(data));
+
+            if (res?.user) {
+                window.location.href = "/dashboard";
+            };
             clearData();
         }
     };

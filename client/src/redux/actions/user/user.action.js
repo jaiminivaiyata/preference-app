@@ -39,7 +39,7 @@ export const userSignUp = (payload) => async (dispatch) => {
         })
         toast.dismiss();
         toast.success('User has been registered Successfully')
-        return;
+        return result.data;
     }
     catch (error) {
         dispatch({
